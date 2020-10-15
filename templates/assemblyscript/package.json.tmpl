@@ -1,0 +1,18 @@
+{
+  "name": "{name}",
+  "version": "0.0.1",
+  "description": "{description}",
+  "author": "{author}",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "asc assembly/index.ts -b build/{name}.wasm --use abort=assembly/index/abort --optimize"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "wapc-guest-as": "git+https://github.com/wapc/wapc-guest-as#v0.2.1",
+    "as-msgpack": "git+https://github.com/wapc/as-msgpack#v0.1.6"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.15.1"
+  }
+}
