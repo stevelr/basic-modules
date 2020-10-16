@@ -15,7 +15,6 @@ clean:
 	rm -Rf build
 
 doc:
-	ll
 
-test: build
-	cargo test
+test:
+	go test --count=1 ./pkg/...

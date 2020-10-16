@@ -9,14 +9,14 @@ codegen:
 
 build:
 	cargo build --target wasm32-unknown-unknown --release
-	mkdir -p build
-	cp target/wasm32-unknown-unknown/release/*.wasm build/
+	mkdir -p build && cp target/wasm32-unknown-unknown/release/*.wasm build/
 
+# Rust builds accrue disk space over time, so running `make clean` should be done periodically.
 clean:
+	cargo clean
 	rm -Rf build
 
 doc:
-	ll
 
 test: build
 	cargo test

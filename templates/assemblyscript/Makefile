@@ -15,7 +15,6 @@ clean:
 	rm -Rf build
 
 doc:
-	ll
 
 test: build
 	npm run test
