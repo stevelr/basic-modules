@@ -1,0 +1,33 @@
+name: generate_rust
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+    - "templates/rust/**"
+  pull_request:
+    branches: [ master ]
+    paths:
+    - "templates/rust/**"
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  cargo_check:
+    runs-on: ubuntu-20_04
+    steps:
+    - uses: actions/checkout@v2
+    - name: install clippy
+      run: rustup component add clippy
+    - name: install wapc
+      run: sudo npm install -g git+https://github.com/wapc/cli.git#master
+    - name: generate
+      run: wapc new rust gen-rust
+    - name: build
+      run: make
+      working-directory: $GITHUB_WORKSPACE/gen-rust
+    - name: clippy_check
+      run: cargo clippy
+      working-directory: $GITHUB_WORKSPACE/gen-rust
+
