@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
+    - name: Add wasm32-unknown-unknown
+      run: rustup target add wasm32-unknown-unknown
     - name: install clippy
       run: rustup component add clippy
     - name: install wapc
