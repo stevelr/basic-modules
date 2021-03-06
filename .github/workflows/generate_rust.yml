@@ -1,3 +1,5 @@
+# This github action tests wapc generation of a crate from the rust template
+# Tests that the generated code builds and passes clippy tests
 name: generate_rust
 
 on:
